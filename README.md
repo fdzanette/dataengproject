@@ -1,7 +1,19 @@
 ## Fetch Tweets dataengproject
-### Simple ETL project to fetch tweets using tweepy, load into datalake (mongodb and txt), then use python dataframe to transoform data and load in DW (postgres)
 
-#### The purpose of this project is to practice a development of a complete data pipeline. We´ll be using airflow to orchestrate the dag runs, mongodb as a datalake (data swamp at this point) to store all the tweetes fetched by the "Fetch Tweets" dag and Postgres as a datawarehowse, where the transformed data is loaded so we can run queries to retreive more meaningful content out of all the "junk" we get from twitter! :)  
+ETL project to fetch tweets, load into datalake (mongodb and txt), then load it in a DW (postgres).
+
+The purpose of this project is to practice the development of a complete data pipeline. We´ll be using Airflow to orchestrate the dag runs, mongodb as a datalake (data swamp at this point) and a Postgres instance as a datawarehowse, where the transformed data is loaded so we can run queries to retreive more meaningful content out of all the "junk" we get from twitter! There´s also a choise of loading the modifed data into Kibana, as a csv file with the same data loaded in the DW was generated with the da "Load_To_Dw".  :)  
+
+To configure and start all this infrastructure at once, I used docker-compose. 
+
+The steps of the project are:
+
+1. Fetch tweets using tweepy library.
+2. Store all the tweetes fetched by the "Fetch Tweets" Dag in a mongodb and generate a txt file.
+3. Read the txt file and create a dataframe from it.
+4. Remove useless colunms.
+5. Load transformed data into Postgres and create a csv file of it.
+6. Load csv into Kibana to create dashboard.
 
 #### Screenshot of the Airflow Dags view
 ![Airflow page](Airflow.jpg)
@@ -38,4 +50,6 @@ dataengwarehouse=# select user_screen_name, user_location, text from tweets wher
 
 
 
+#### Visualization in Kibana
 
+![kibana](Kibana.jpg)
