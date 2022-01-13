@@ -1,6 +1,6 @@
 ## Fetch Tweets dataengproject
 
-ETL project to fetch tweets, load into datalake (mongodb and txt), then load it in a DW (postgres).
+ETL project to fetch tweets, load into data lake (mongodb and txt), then load it in a DW (postgres).
 
 The purpose of this project is to practice the development of a complete data pipeline. We´ll be using Airflow to orchestrate the dag runs, mongodb as a datalake (data swamp at this point) and a Postgres instance as a datawarehowse, where the transformed data is loaded so we can run queries to retreive more meaningful content out of all the "junk" we get from twitter! There´s also a choise of loading the modifed data into Kibana, as a csv file with the same data loaded in the DW was generated with the da "Load_To_Dw".  :)  
 
